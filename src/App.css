@@ -96,24 +96,23 @@
   transition: all 300ms ease;
 }
 /* AddNewTodo form */
-.AddNewTodo form{
+.AddNewTodo form {
   background: #fff;
   width: 500px;
   padding: 1rem 1rem calc(1rem + 40px) 1rem;
-  border-radius:4px
+  border-radius: 4px;
 }
-.AddNewTodo form .text input{
+.AddNewTodo form .text input {
   width: 100%;
   padding: 1rem;
-  font-size:1.2rem;
-border:none;
-
+  font-size: 1.2rem;
+  border: none;
 }
-.AddNewTodo form .text input:focus{
+.AddNewTodo form .text input:focus {
   border-bottom: 1px solid #0080ff;
   outline: none;
 }
-.remind{
+.remind {
   display: flex;
   padding: 1rem;
   align-items: center;
@@ -121,68 +120,65 @@ border:none;
 .remind p {
   padding-left: 5px;
 }
-.AddNewTodo form .title{
-
-display: flex;
-align-items: center;
+.AddNewTodo form .title {
+  display: flex;
+  align-items: center;
 }
-.AddNewTodo form .pick-day{
-
-  padding: 1.5rem 1.5rem 0 1.5rem
+.AddNewTodo form .pick-day {
+  padding: 1.5rem 1.5rem 0 1.5rem;
 }
-.AddNewTodo form .pick-time{
-padding: 1.5em;
+.AddNewTodo form .pick-time {
+  padding: 1.5em;
 }
-.AddNewTodo form .pick-project{
-  padding: 1.5em
+.AddNewTodo form .pick-project {
+  padding: 1.5em;
 }
-.AddNewTodo form .projects
-{
+.AddNewTodo form .projects {
   display: flex;
   flex-wrap: wrap;
   padding: 1rem 1rem 0 1rem;
 }
-.AddNewTodo form .project{
+.AddNewTodo form .project {
   border: 1px solid #0080ff;
   border-radius: 3px;
   margin: 5px;
-  padding:5px;
+  padding: 5px;
   cursor: pointer;
 }
-.AddNewTodo form .projects .active{
+.AddNewTodo form .projects .active {
   background-color: #0080ff;
   color: #fff;
 }
-.AddNewTodo form .cancel{
+.AddNewTodo form .cancel {
   position: absolute;
   top: 0;
   right: 5px;
 }
-.confirm{
+.confirm {
   width: 100%;
 
   position: absolute;
   left: 0;
   bottom: 0;
 }
-.confirm button{
+.confirm button {
   width: 100%;
   background-color: #0080ff;
   border: none;
-  border-radius:0 0 0 4px 4px;
-  height:40px;
+  border-radius: 0 0 0 4px 4px;
+  height: 40px;
   cursor: pointer;
 }
-.Calendar{
-  padding:1rem;
+.Calendar {
+  padding: 1rem;
   border-bottom: 1px solid #ebebeb;
 }
-.header{
+.header {
   display: flex;
   justify-items: center;
   flex: 1;
 }
-.title{
+.title {
   display: flex;
   justify-items: center;
 }
@@ -191,25 +187,118 @@ padding: 1.5em;
   font-size: 1.1rem;
   font-weight: bold;
 }
-.btn span{
-display: flex;
-height:25px;
-width: 25px;
-cursor: pointer;
-justify-content: center;
-align-items: center;
-border-radius:50%
+.btn span {
+  display: flex;
+  height: 25px;
+  width: 25px;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
 }
-.btn span:hover{
+.btn span:hover {
   background-color: #ebebeb;
   transition: all 300ms ease-in-out;
 }
-.items{
- padding: 0.5rem;
+.items {
+  padding: 0.5rem;
 }
 .items .item {
   padding: 0.5rem;
   margin: 5px 0;
   cursor: pointer;
-  font-size: 1rem
+  font-size: 1rem;
+}
+
+/* Projects */
+.Projects {
+  padding: 1rem;
+  border-bottom: 1px solid #ebebeb;
+}
+.Projects .header {
+  display: flex;
+  align-items: center;
+}
+.Projects .header .title {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+.Projects .header .title p {
+  margin-left: 5px;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+.Projects .header .btns {
+  display: flex;
+  align-items: center;
+}
+.Projects .header .btns span.edit {
+  margin-right: 5px;
+}
+.Projects .header .btns span {
+  border-radius: 50%;
+  cursor: pointer;
+  width: 25px;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.Projects .header .btns span:hover {
+  background-color: #ebebeb;
+  transition: all 300ms ease-in-out;
+}
+.Projects .items {
+  padding: 0.5rem;
+}
+/* Project */
+.Project {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 0.25rem;
+  margin: 5px;
+  font-size: 1rem;
+}
+.Project .name {
+  cursor: pointer;
+  word-break: break-all;
+}
+.Project .btns {
+  display: flex;
+  align-items: center;
+}
+.Project .btns .total-todos {
+  position: absolute;
+  right: 0;
+  background: #ebebeb;
+  width: 25px;
+  height: 25px;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+.Project .btns .edit-delete {
+  position: absolute;
+  right: 0;
+  display: flex;
+}
+.Project .btns .edit-delete span {
+  border-radius: 50%;
+  cursor: pointer;
+  width: 25px;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 300ms ease-in-out;
+}
+.Project .btns .edit-delete span.edit:hover {
+  background: #acffac;
+}
+.Project .btns .edit-delete span.delete:hover {
+  background: #ffacac;
 }
