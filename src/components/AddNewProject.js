@@ -1,33 +1,31 @@
-import React,{useState} from 'react'
-import {Plus} from 'react-bootstrap-icons'
-import Modal from './Modal'
-import ProjectForm from './ProjectForm'
-function AddNewProject(){
-    const [showModal, setShowModal] = useState(false)
-    const [PojectName, setProjectName] = useState('')
-    const handleSubmit=(e)=>{
+import React, { useState } from "react";
+import { Plus } from "react-bootstrap-icons";
+import Modal from "./Modal";
+import ProjectForm from "./ProjectForm";
+function AddNewProject() {
+  const [showModal, setShowModal] = useState(false);
+  const [projectName, setProjectName] = useState("");
+  function handleSubmit(e) {}
 
-    }
-    return (
-        <div className='AddNewProject'>
-                  <div className="add-button" onClick={() => setShowModal(true)}>
-                <span>
-                    <Plus size="20" />
-                </span>
-            </div>
-            <Modal showModal={showModal} setShowModal={setShowModal}>
-                <ProjectForm 
-                handleSubmit={handleSubmit}
-                heading="Add New Project"
-                value={PojectName}
-                setValue={setProjectName}
-                confirmButtonText="+ Add Project"
-                setShowModal={setShowModal}
-                />
-
-            </Modal>
-        </div>
-    )
+  return (
+    <div className="AddNewProject">
+      <div className="add-button">
+        <span onClick={() => setShowModal(true)}>
+          <Plus size="20" />
+        </span>
+      </div>
+      <Modal showModal={showModal} setShowModal={setShowModal}>
+        <ProjectForm
+          handleSubmit={handleSubmit}
+          heading="New project!"
+          value={projectName}
+          setValue={setProjectName}
+          setShowModal={setShowModal}
+          confirmButtonText="+ Add Project"
+        />
+      </Modal>
+    </div>
+  );
 }
 
-export default AddNewProject
+export default AddNewProject;
