@@ -1,10 +1,10 @@
 import React from 'react'
 
-function Todo(){
+function Todo({todo}){
 
     return (
         <div className='Todo'>
-            Todo
+            {todo.text}
         </div>
     )
 }
