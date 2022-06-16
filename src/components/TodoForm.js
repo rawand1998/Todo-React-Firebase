@@ -12,10 +12,11 @@ function TodoForm({
   setDay,
   setShowModal,
   showButtons = false,
-  projects={projects}
+  projects={projects},
+  todoProject, setTodoProject,
 }) {
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className='TodoForm'>
       <div className="text">
         {heading && <h3>{heading}</h3>}
 
@@ -45,9 +46,15 @@ function TodoForm({
           <p>Choose a project</p>
         </div>
         <div className="projects">
-          <div className="project active">personal</div>
-          <div className="project">work</div>
-          <div className="project">work</div>
+          {projects.length > 0
+          ?
+          projects.map((project) =>
+          <div key={project.id} onClick={()=>setTodoProject(project.name)}
+        className={`project ${todoProject === project.name ? "active" : ""}`}
+          >{project.name}</div>
+          )
+          :<div style={{'color':'#f00'}}>Haven`t any project yet !</div>}
+          
         </div>
       </div>
       {showButtons && (
