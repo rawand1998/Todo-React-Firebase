@@ -17,19 +17,19 @@ export function useTodos() {
               
             })
             setTodos(data)
-            
-           
+            console.log("data todos",data)
+          
         })
 
         return () => unsubscribe()
-    })
+    },[])
 
     return todos
 }
 export  function useProjects(todos){
     const [projects,setProjects] = useState([])
     function calculateNumOfTodos(projectName, todos){
-        // console.log(todos)
+        console.log("todos",todos)
         // return todos.filter( todo => todo.projectName === projectName).length
     }
     useEffect(() => {
@@ -48,10 +48,11 @@ export  function useProjects(todos){
                 }
             })
             setProjects(data)
+            console.log(data,"data projects")
         })
 
         return () => unsubscribe()
-    })
+    },[])
 
     return projects
 }
