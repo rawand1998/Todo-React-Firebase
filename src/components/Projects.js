@@ -41,6 +41,7 @@ function Projects(){
                             project={project}
                             key={project.id}
                             edit={edit}
+                           
                         />
                     )
                 }
