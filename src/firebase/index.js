@@ -2,13 +2,13 @@ import firebase from 'firebase/compat/app'
 import 'firebase/compat/firestore'
 
 const firebaseConfig = {
-  apiKey: "AIzaSyA_Vuag1bJGZkZcAJ-t5gUFMHz3ffcSjn4",
-  authDomain: "to-do-86129.firebaseapp.com",
-  projectId: "to-do-86129",
-  storageBucket: "to-do-86129.appspot.com",
-  messagingSenderId: "89779293160",
-  appId: "1:89779293160:web:7776e0f39a44ecdfa0b25d",
-  measurementId: "G-RKMKCCYZHP"
+  apiKey: "AIzaSyD4O8lx8IOd2iyNMW-l9sSxE2eim-oU2-k",
+  authDomain: "todo-firebase-27f0a.firebaseapp.com",
+  projectId: "todo-firebase-27f0a",
+  storageBucket: "todo-firebase-27f0a.appspot.com",
+  messagingSenderId: "1061761969032",
+  appId: "1:1061761969032:web:28ec12078e7f38f42ce83d",
+  measurementId: "G-NZ69E1XLXF"
 };
 
 firebase.initializeApp(firebaseConfig)
