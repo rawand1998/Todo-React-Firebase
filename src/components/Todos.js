@@ -4,10 +4,6 @@ import Next7Days from "./Next7Days";
 import { TodoContext } from '../context'
 function Todos() {
     const {todos, selectedProject } = useContext(TodoContext)
-
-console.log(selectedProject)
-  
-console.log(todos)
   return (
     <div className="Todos">
       <div className="selected-project">{selectedProject}</div>
