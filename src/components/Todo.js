@@ -6,6 +6,9 @@ function Todo({ todo }) {
 const deleteTodo = ()=>{
 firebase.firestore().collection('todo').doc(todo.id).delete()
 }
+const checked =()=>{
+    firebase.firestore().collection('todo').doc(todo.id).update({checked:!todo.checked})
+}
   return (
       <div className='Todo'>
           <div
@@ -20,7 +23,7 @@ firebase.firestore().collection('todo').doc(todo.id).delete()
                           <CheckCircleFill color="#bebebe" />
                       </span>
                       :
-                      <span className="unchecked">
+                      <span className="unchecked" onClick={()=>checked()}>
                           <Circle color={todo.color} />
                       </span>
                   }
