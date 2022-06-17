@@ -16,6 +16,7 @@ function TodoContextProvider({children}){
                     setSelectedProject,
                     todos,
                     projects,
+                    selectedProject,defaultProject
 
                 }
             }
