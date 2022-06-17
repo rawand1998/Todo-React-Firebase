@@ -1,30 +1,55 @@
-import React ,{useState}from 'react'
-import TodoForm from './TodoForm'
-function EditTodo(){
-    const [text, setText] = useState('')
-    const [day, setDay] = useState(new Date())
-const handleSubmit = ()=>{
+import React, { useState, useContext, useEffect } from "react";
+import TodoForm from "./TodoForm";
+import { TodoContext } from "../context";
+import moment from "moment";
+import firebase from "../firebase";
+function EditTodo() {
+  const [text, setText] = useState("");
+  const [day, setDay] = useState(new Date());
+  const [todoProject, setTodoProject] = useState("");
+  const {selectedTodo ,projects} = useContext(TodoContext);
+  useEffect(() => {
+    if (selectedTodo) {
+      setText(selectedTodo.text);
+      setDay(moment(selectedTodo.date, "MM/DD/YYYY"));
+      setTodoProject(selectedTodo.project);
+    }
+  }, [selectedTodo]);
 
-}
-const projects = [
-    { id : 1, name : "personal", numOfTodos : 0 },
-    { id : 2, name : "work", numOfTodos : 1 },
-    { id : 3, name : "other", numOfTodos : 2 }
-]
-    return (
-        <div className='EditTodo'>
-       <TodoForm  handleSubmit={handleSubmit}
-                  
-                    text={text}
-                    setText={setText}
-                    day={day}
-                    setDay={setDay}
-                  
-                    projects={projects}
-                   
-               />
+  useEffect(() => {
+    if (selectedTodo) {
+      firebase
+        .firestore()
+        .collection("todo")
+        .doc(selectedTodo.id)
+        .update({
+          text,
+          date: moment(day).format("MM/DD/YYYY"),
+          project: todoProject,
+        });
+    }
+  }, [text, day, todoProject]);
+
+  const handleSubmit = () => {};
+
+  return (
+    <div>
+      {selectedTodo && (
+        <div className="EditTodo">
+          <TodoForm
+            handleSubmit={handleSubmit}
+            text={text}
+            setText={setText}
+            day={day}
+            setDay={setDay}
+            projects={projects}
+            setTodoProject={setTodoProject}
+            todoProject={todoProject}
+          />
         </div>
-    )
+      )}
+    </div>
+  );
 }
 
-export default EditTodo
+export default EditTodo;
