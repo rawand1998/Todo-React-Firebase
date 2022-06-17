@@ -1,6 +1,6 @@
 import { useState,useEffect } from "react";
 import firebase from "../firebase"
-
+import moment from 'moment'
 export function useTodos() {
     const [todos,setTodos] = useState([])
     useEffect(() => {
@@ -26,6 +26,38 @@ export function useTodos() {
 
     return todos
 }
+export function useFilterTodos(todos, selectedProject){
+    const [filteredTodos, setFilteredTodos] = useState([])
+
+    useEffect( () => {
+        let data;
+        const todayDateFormated = moment().format('MM/DD/YYYY')
+
+        if(selectedProject === 'today'){
+            data = todos.filter(todo => todo.date === todayDateFormated)
+            console.log("data")
+        }else if(selectedProject === 'next 7 days'){
+            data = todos.filter(todo => {
+                const todoDate = moment(todo.date, 'MM/DD/YYYY')
+                const todayDate = moment(todayDateFormated, 'MM/DD/YYYY')
+
+                const diffDays = todoDate.diff(todayDate, 'days')
+
+                return diffDays >=0 && diffDays < 7
+            })
+        }else if( selectedProject === 'all days'){
+            data = todos
+            console.log("data")
+        }else{
+            // data = todos.filter(todo => todo.project === selectedProject)
+        }
+
+        setFilteredTodos(data)
+    }, [todos, selectedProject])
+
+    return filteredTodos
+}
+
 export  function useProjects(todos){
     const [projects,setProjects] = useState([])
     function calculateNumOfTodos(projectName, todos){
