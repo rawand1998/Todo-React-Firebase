@@ -17,7 +17,7 @@ export function useTodos() {
               
             })
             setTodos(data)
-            console.log("data todos",data)
+         
           
         })
 
@@ -34,8 +34,8 @@ export function useFilterTodos(todos, selectedProject){
         const todayDateFormated = moment().format('MM/DD/YYYY')
 
         if(selectedProject === 'today'){
-            data = todos.filter(todo => todo.date === todayDateFormated)
-            console.log("data")
+            // data = todos.filter(todo => todo.date === todayDateFormated)
+           
         }else if(selectedProject === 'next 7 days'){
             data = todos.filter(todo => {
                 const todoDate = moment(todo.date, 'MM/DD/YYYY')
@@ -47,7 +47,7 @@ export function useFilterTodos(todos, selectedProject){
             })
         }else if( selectedProject === 'all days'){
             data = todos
-            console.log("data")
+         
         }else{
             // data = todos.filter(todo => todo.project === selectedProject)
         }
@@ -61,7 +61,7 @@ export function useFilterTodos(todos, selectedProject){
 export  function useProjects(todos){
     const [projects,setProjects] = useState([])
     function calculateNumOfTodos(projectName, todos){
-        console.log("todos",todos)
+       
         // return todos.filter( todo => todo.projectName === projectName).length
     }
     useEffect(() => {
@@ -80,7 +80,7 @@ export  function useProjects(todos){
                 }
             })
             setProjects(data)
-            console.log(data,"data projects")
+           
         })
 
         return () => unsubscribe()
